@@ -1,0 +1,83 @@
+//MENU
+
+let tarefas = [];
+
+function opcaoCriarArquivo() {
+    console.log("Você escolheu a Opção 1.");
+    let titulo = prompt('Insira o titulo do seu documento.')
+    let descrição = prompt('Insira a descrição do seu documento.')
+    let pendente = 'pendente'
+    let tarefa = {tituloTarefa: titulo, descricaoTarefa: descrição, status: pendente};
+    tarefas.push(tarefa);
+    console.log(tarefas);
+    console.log('-------------------------------');
+    
+}
+
+  function opcaoVisualizar() {
+    console.log("Você escolheu a Opção 2.");
+  }
+  
+
+  //
+
+
+  function opcaoEditarExcluir() {
+    console.log("Você escolheu a Opção 3.");
+    let escolhaTarefa = prompt('Insira a tarefa que deseja fazer alterações.');
+    for (escolhaTarefa of tarefas) {
+      editarExcluir = prompt('Deseja editar ou excluir essa tarefa?');
+      if (editarExcluir === 'editar') {
+        editarTitulo = prompt('Insira o novo nome do seu documento.');
+        editarDesc = prompt('Insira a nova descrição do seu documento.');
+        editarStatus = prompt('Insira o status do seu documento.');
+        tarefa.tituloTarefa = editarTitulo;
+        tarefa.descricaoTarefa = editarDesc;
+        tarefa.status = editarStatus;
+        console.log('documento editado com sucesso.');
+        exibirMenu();
+      } else if (editarExcluir === 'excluir') {
+        escolhaTarefa.splice(tarefas);
+        exibirMenu();
+        console.log('documento excluído com sucesso.');
+      } else {
+        console.log('documento inválido.');
+      }
+    }
+
+    /**
+     * listar as tarefas
+     * pedir um prompt perguntando qual tarefa deseja editar ou excluir
+     * pedir um promopt perguntando se quer editar ou apagar a tarefa
+     * sde quiser apagar apaga com splice e volta pro menu
+     * se quiser editar precisa pedir cada item da tarefa com prompt e editar 
+     * tarefa.tituloTarefa = variavel_do_prompt_com_titulo_tarefa
+     * descricao
+     * status
+     * volta pro menu
+     * 
+     */
+    
+  }
+  
+  function exibirMenu() {
+    console.log("Selecione uma opção:");
+    console.log("1. Criar arquivo");
+    console.log("2. Visualizar arquivos");
+    console.log("3. Editar/Excluir arquivo");
+
+  }
+  
+  exibirMenu();
+  
+   const escolha = prompt("Digite o número da opção desejada:");
+  
+  if (escolha === "1") {
+    opcaoCriarArquivo();
+  } else if (escolha === "2") {
+    opcaoVisualizar();
+  } else if (escolha === "3") {
+    opcaoEditarExcluir();
+  } else {
+    console.log("Opção inválida.");
+  } 
