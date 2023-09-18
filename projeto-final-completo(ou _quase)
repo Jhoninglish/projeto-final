@@ -1,0 +1,95 @@
+//MENU
+
+let tarefas = [];
+
+function opcaoCriarArquivo() {
+    console.log("Você escolheu a Opção 1.");
+    let titulo = prompt('Insira o titulo do seu documento.')
+    let descricao = prompt('Insira a descrição do seu documento.')
+    let pendente = 'pendente'
+    let tarefa = {tituloTarefa: titulo, descricaoTarefa: descricao, status: pendente}.toString();
+    tarefas.push(tarefa);
+    console.log(tarefas);
+    exibirMenu();
+    console.log('-------------------------------');
+    
+}
+ const tasks = [
+      { id: 0, titulo: 'Tarefa 1', descricao: 'Descrição da Tarefa 1', status: 'pendente' },
+      { id: 1, titulo: 'Tarefa 2', descricao: 'Descrição da Tarefa 2', status: 'pendente' },
+      { id: 2, titulo: 'Tarefa 2', descricao: 'Descrição da Tarefa 3', status: 'concluída' },
+      ];
+  function opcaoVisualizar() {
+    console.log("Você escolheu a Opção 2.");
+      console.log(tarefas);
+      tasks.forEach((task, index) => {
+      console.log(`Tarefa ${index + 1}:`);
+      console.log(`Título: ${task.titulo}`);
+      console.log(`Descrição: ${task.descricao}`);
+      console.log(`Status: ${task.status}`);
+      console.log('------------------------');
+        });
+        exibirMenu();
+  }
+  
+
+  function marcartarefaConcluida() {
+    let escolha = prompt("Escolha a tarefa");
+        tarefas[escolha].status = "Concluído";
+        tarefas[escolha].descricaoTarefa = "Concluído";
+        tarefas[escolha].tituloTarefa =  "Concluído";
+          marcartarefaConcluida()
+          exibirMenu();
+    }
+  
+
+
+  function opcaoEditarExcluir() {
+    console.log("Você escolheu a Opção 3.");
+    let escolhaTarefa = Number(prompt('Insira o indice tarefa que deseja fazer alterações.'));
+    for (escolhaTarefa of tarefas) {
+      editarExcluir = prompt('Deseja editar ou excluir essa tarefa?');
+      if (editarExcluir === 'editar') {
+        editarTitulo = prompt('Insira o novo nome do seu documento.').toString();
+        editarDesc = prompt('Insira a nova descrição do seu documento.').toString();
+        editarStatus = prompt('Insira o status do seu documento.').toString().toLowerCase();
+        tarefas[escolhaTarefa].tituloTarefa = editarTitulo;
+        tarefas[escolhaTarefa].descricaoTarefa = editarDesc;
+        tarefas[escolhaTarefa].status = editarStatus;
+        console.log('documento editado com sucesso.');
+        exibirMenu();
+      } else if (editarExcluir === 'excluir') {
+        tarefas.splice(escolhaTarefa);
+        console.log('documento excluído com sucesso.');
+        exibirMenu();
+      } else {
+        console.log('documento inválido.');
+        exibirMenu();
+      }
+    }
+
+    
+  }
+  
+  function exibirMenu() {
+     const escolha = prompt("Digite o número da opção desejada:");
+    console.log("Selecione uma opção:");
+    console.log("1. Criar arquivo");
+    console.log("2. Visualizar arquivos");
+    console.log("3. Editar/Excluir arquivo");
+if (escolha === "1") {
+    opcaoCriarArquivo();
+  } else if (escolha === "2") {
+    opcaoVisualizar();
+  } else if (escolha === "3") {
+    opcaoEditarExcluir();
+  } else {
+    console.log("Opção inválida.");
+  } 
+  }
+  
+  exibirMenu();
+  
+  
+  
+  
