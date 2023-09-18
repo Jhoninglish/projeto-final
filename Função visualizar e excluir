@@ -1,0 +1,31 @@
+const tasks = [
+{ id: 1, titulo: 'Tarefa 1', descricao: 'Descrição da Tarefa 1', status: 'pendente' },
+{ id: 2, titulo: 'Tarefa 2', descricao: 'Descrição da Tarefa 2', status: 'pendente' },
+{ id: 3, titulo: 'Tarefa 2', descricao: 'Descrição da Tarefa 3', status: 'concluída' },
+];
+function viewTasks() {
+console.log(ListadeTarefas);
+tasks.forEach((task, index) => {
+console.log(`Tarefa ${index + 1}:`);
+console.log(`Título: ${task.titulo}`);
+console.log(`Descrição: ${task.descricao}`);
+console.log(`Status: ${task.status}`);
+console.log('------------------------');
+  });
+}
+// Chame a função para visualizar as tarefas
+viewTasks();
+// Crie uma lista de tarefas
+let listaDeTarefas = ["Tarefa 1", "Tarefa 2", "Tarefa 3"];
+
+// Função para excluir uma tarefa pelo seu índice na lista
+function excluirTarefa(indice) {
+  if (indice >= 0 && indice < listaDeTarefas.length) {
+listaDeTarefas.splice(indice, 1);
+console.log("Tarefa excluída!");
+} else {
+console.log("A tarefa não pode ser excluída.");
+  }
+}
+excluirTarefa(1);
+console.log(listaDeTarefas);
