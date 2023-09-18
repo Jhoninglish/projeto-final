@@ -1,0 +1,9 @@
+let tarefas =  [{tituloTarefa, descricaoTarefa, status}]
+
+  function marcartarefaConcluida() {
+let escolha = prompt("Escolha a tarefa");
+    tarefas[escolha].status = "Concluído";
+    tarefas[escolha].descricaoTarefa = "Concluído";
+    tarefas[escolha].tituloTarefa =  "Concluído";
+}
+marcartarefaConcluida()
